@@ -3,17 +3,22 @@
 ## API and deployment
 
 API endpoint can be accessed from here:
+
+```
 https://coins-compare.onrender.com/api/coins/compare?list[]=BTC&list[]=ETH&list[]=BNB&list[]=DOGE&date=03/28/2022
+```
 
 ```
 GET /api/coins/compare
 with two query params: list, date
 ```
 
-list of coins is an **array** quey param, for examples: list[]=BTC&list[]=ETH
+**list** of coins is an **array** quey param, for examples:
+list[]=BTC&list[]=ETH
+
 date with the following format: mm/dd/yyyy
 
-response example:
+JSON response example:
 
 ```json
 [
@@ -35,8 +40,9 @@ response example:
 The server is deployed using Render.
 
 ## Implementation Details
-NodeJs server with express and tyepscript. 
-Used celebrate with Joi for query params quick validation. 
+
+NodeJs server with express and tyepscript.
+Used celebrate with Joi for query params quick validation.
 It can be extended to support different date formats (just takes time).
 
 CryptoApi return Coins data from external CryptoCompare API. I used two
@@ -53,9 +59,11 @@ After that, calculating all the precentages and sorting based on best performing
 one and resturing a JSON result.
 
 ## Tests
+
 Running tests could be done locally:
- > npm run test 
- 
+
+> npm run test
+
 I added some basic tests and more can be done there...
 
 - Unit testing for precentage calculation
