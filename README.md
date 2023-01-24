@@ -16,7 +16,7 @@ with two query params: symbols, date
 **symbols** of coins is an **array** quey param, for examples:
 symbols[]=BTC&symbols[]=ETH
 
-date with the following format: mm/dd/yyyy
+**date** with the following format: mm/dd/yyyy 
 
 JSON response example:
 
@@ -42,8 +42,10 @@ The server is deployed using Render.
 ## Implementation Details
 
 NodeJs server with express and tyepscript.
-Used celebrate with Joi for query params quick validation.
-It can be extended to support different date formats (not doing it now)
+Used celebrate with Joi for query params quick validation. 
+It can be extended to support more date formats (not doing it now).
+Also there is no validation that the symbols actually exists, you can enter funny
+values and just get a funny response.
 
 getCoinsData return Coins data from external CryptoCompare API. I used two
 different end points, to be able to do the calculations I'm using USD as the
