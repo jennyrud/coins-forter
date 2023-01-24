@@ -1,5 +1,4 @@
-import CryptoApi from "../../src/cryptoapi/cryptoapi";
-import { CRYPTO_COMPARE_URL, MULTIPLE_PRICE_CURR, COMPARE_CURRENCY, API_KEY, DAY_PAIR_HISTORICAL } from "../../src/cryptoapi/cryptoapi";
+import getCoinsData, { CRYPTO_COMPARE_URL, MULTIPLE_PRICE_CURR, COMPARE_CURRENCY, API_KEY, DAY_PAIR_HISTORICAL } from "../../src/cryptoapi/coinsData";
 
 import nock from "nock";
 
@@ -36,7 +35,7 @@ describe("Crypto API testing ", () => {
                 }
             });
 
-        let data = await CryptoApi(coinsList, date);
+        let data = await getCoinsData(coinsList, date);
         expect(data[0]).toEqual({ coinKey: "BTC", curr: 22926.86, prev: 41133.64 });
         expect(data[1]).toEqual({ coinKey: "ETH", curr: 1629.36, prev: 22996.64 });
     })
